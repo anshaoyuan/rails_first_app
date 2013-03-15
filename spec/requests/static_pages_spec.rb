@@ -12,23 +12,23 @@ describe "StaticPages" do
 =end
   describe "Home page" do
     	it "should have the h1 'Sample App'" do
-  		visit '/static_pages/home'
+  		visit root_path
   		page.should have_content('Sample App')
   	end
       it "shuold have the right title" do
-        visit '/static_pages/home'
+        visit root_path
         page.should have_selector('title',
           :text=>"#{basetitle} | Home")
       end
   end
   describe "Help page" do
     it "should have the h1 'Help'" do
-      visit '/static_pages/help'
+      visit help_path
       page.should have_selector('h1',:text=>'Help')
     end
 
     it "should have the title 'Help'" do
-      visit '/static_pages/help'
+      visit help_path
       page.should have_selector('title',
         :text=>"#{basetitle} | Help")
 
@@ -36,22 +36,22 @@ describe "StaticPages" do
   end
   describe "About page" do
     it "shuold have the h1 'About china'" do
-      visit '/static_pages/about'
+      visit about_path
       page.should have_content('About China')
     end
     it "shuold have the title 'About China'" do
-        visit '/static_pages/about'
+        visit about_path
         page.should have_selector('title',
           :text=>"#{basetitle} | About China")
     end
   end
     describe "Contact page" do
     it "shuold have the h1 'Contact'" do
-      visit '/static_pages/contact'
+      visit contact_path
       page.should have_content('Contact')
     end
     it "shuold have the title 'Contact'" do
-        visit '/static_pages/contact'
+        visit contact_path
         page.should have_selector('title',
           :text=>"#{basetitle} | Contact")
     end
