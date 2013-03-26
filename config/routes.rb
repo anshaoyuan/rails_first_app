@@ -1,12 +1,15 @@
 FirstApp::Application.routes.draw do
 
 
+  get "users/new"
+
   root to:'static_pages#home'
   match '/help',to:'static_pages#help', as: 'help'
 
   match '/about',to:'static_pages#about',as:'about'
 
   match '/contact',to:'static_pages#contact',as:'contact'
+  match '/signup',to:'users#new',as:'signup'
   resources :microposts
 
   resources :users

@@ -10,51 +10,38 @@ describe "StaticPages" do
     end
   end
 =end
+  subject {page}
   describe "Home page" do
-    	it "should have the h1 'Sample App'" do
-  		visit root_path
-  		page.should have_content('Sample App')
-  	end
-      it "shuold have the right title" do
-        visit root_path
-        page.should have_selector('title',
-          :text=>"#{basetitle} | Home")
-      end
+      before {visit root_path}
+    	it {should have_content('Sample App')}
+  	
+      it { should have_selector('title',
+          :text=> full_title(''))
+        }
   end
   describe "Help page" do
-    it "should have the h1 'Help'" do
-      visit help_path
-      page.should have_selector('h1',:text=>'Help')
-    end
+    before{visit help_path}
+    it {should have_selector('h1',:text=>'Help')}
 
-    it "should have the title 'Help'" do
-      visit help_path
-      page.should have_selector('title',
-        :text=>"#{basetitle} | Help")
-
-    end
+    it {should have_selector('title',
+              :text=>"#{basetitle} | Help")
+      }
   end
   describe "About page" do
-    it "shuold have the h1 'About china'" do
-      visit about_path
-      page.should have_content('About China')
-    end
-    it "shuold have the title 'About China'" do
-        visit about_path
-        page.should have_selector('title',
-          :text=>"#{basetitle} | About China")
-    end
+    before{ visit about_path}
+    it {should have_content('About China')}
+    
+    it {should have_selector('title',
+                  :text=>"#{basetitle} | About China")}
+
   end
     describe "Contact page" do
-    it "shuold have the h1 'Contact'" do
-      visit contact_path
-      page.should have_content('Contact')
-    end
-    it "shuold have the title 'Contact'" do
-        visit contact_path
-        page.should have_selector('title',
-          :text=>"#{basetitle} | Contact")
-    end
+      before{ visit contact_path}
+    it {should have_content('Contact')}
+    
+    it {should have_selector('title',
+              :text=>"#{basetitle} | Contact")}
+   
   end
 
 end
